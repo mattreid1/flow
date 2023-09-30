@@ -87,7 +87,7 @@ export default function Index() {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
         />
-        <title>{focusedTab?.title ?? 'Flow'}</title>
+        <title>{focusedTab?.title ?? 'Reader'}</title>
       </Head>
       <ReaderGridView />
       {loading || <Library />}
@@ -187,7 +187,7 @@ const Library: React.FC = () => {
         <div>
           <TextField
             name={SOURCE}
-            placeholder="https://link.to/remote.epub"
+            placeholder="URL to remote ePub"
             type="url"
             hideLabel
             actions={[
@@ -212,21 +212,9 @@ const Library: React.FC = () => {
         </div>
         <div className="flex items-center justify-between gap-4">
           <div className="space-x-2">
-            {books.length ? (
+            {books.length > 0 && (
               <Button variant="secondary" onClick={toggleSelect}>
                 {t(select ? 'cancel' : 'select')}
-              </Button>
-            ) : (
-              <Button
-                variant="secondary"
-                disabled={!books}
-                onClick={() => {
-                  fetchBook(
-                    'https://epubtest.org/books/Fundamental-Accessibility-Tests-Basic-Functionality-v1.0.0.epub',
-                  )
-                }}
-              >
-                {t('download_sample_book')}
               </Button>
             )}
             {select &&

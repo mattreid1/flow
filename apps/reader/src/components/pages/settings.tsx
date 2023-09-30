@@ -46,7 +46,6 @@ export const Settings: React.FC = () => {
             <option value="dark">{t('color_scheme.dark')}</option>
           </Select>
         </Item>
-        <Synchronization />
         <Item title={t('cache')}>
           <Button
             variant="secondary"

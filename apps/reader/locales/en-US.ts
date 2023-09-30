@@ -12,7 +12,7 @@ export default {
   'home.upload': 'Upload',
   'home.delete': 'Delete',
 
-  'toc.title': 'TOC',
+  'toc.title': 'Navigate',
   'toc.library': 'Library',
 
   'search.title': 'Search',

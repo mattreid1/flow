@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Flow",
-  "short_name": "Flow",
-  "description": "Redefine EPUB reader",
+  "name": "Reader",
+  "short_name": "Reader",
+  "description": "ePUB reader",
   "icons": [
     {
       "src": "/icons/192.png",
