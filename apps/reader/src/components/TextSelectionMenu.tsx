@@ -176,11 +176,11 @@ const TextSelectionMenuRenderer: React.FC<TextSelectionMenuRendererProps> = ({
         }}
         tabIndex={-1}
         onKeyDown={(e) => {
-          e.stopPropagation()
-          if (e.key === 'c' && e.ctrlKey) {
-            copy(text)
-          }
-        }}
+					e.stopPropagation();
+					if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+						copy(text);
+					}
+				}}
       >
         {annotate ? (
           <div className="mb-3">
