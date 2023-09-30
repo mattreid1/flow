@@ -12,7 +12,7 @@ COPY . .
 RUN turbo prune --scope=@flow/reader --docker
 
 # Add lockfile and package.json's of isolated subworkspace
-FROM node:alpine AS installer
+FROM node:16-alpine AS installer
 RUN apk add --no-cache libc6-compat
 RUN apk update
 WORKDIR /app
@@ -31,7 +31,7 @@ COPY tsconfig.*json .
 
 RUN DOCKER=1 pnpm -F reader build
 
-FROM node:alpine AS runner
+FROM node:16-alpine AS runner
 WORKDIR /app
 
 # Don't run production as root
@@ -46,5 +46,6 @@ COPY --from=installer /app/apps/reader/package.json .
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=installer --chown=nextjs:nodejs /app/apps/reader/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/reader/.next/static ./apps/reader/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/reader/public ./apps/reader/public
 
 CMD node apps/reader/server.js
