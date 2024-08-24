@@ -21,6 +21,7 @@ export default {
   'annotation.title': '标注',
   'annotation.definitions': '定义',
   'annotation.annotations': '标注',
+  'annotation.copy_as_markdown': '复制为 Markdown',
 
   'image.title': '图片',
 
@@ -43,7 +44,7 @@ export default {
   'theme.background_color': '背景色',
 
   'settings.title': '设置',
-  'settings.lanuage': '语言',
+  'settings.language': '语言',
   'settings.color_scheme': '颜色模式',
   'settings.color_scheme.system': '系统',
   'settings.color_scheme.light': '浅色',
